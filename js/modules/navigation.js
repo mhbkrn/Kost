@@ -93,3 +93,29 @@ document.addEventListener('DOMContentLoaded', () => {
     // Run once on load
     highlightNavLink();
 });
+
+// Benefits tabs functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const benefitTabs = document.querySelectorAll('.benefit-tab');
+    const benefitsGroups = document.querySelectorAll('.benefits-group');
+    
+    benefitTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            // Remove active class from all tabs
+            benefitTabs.forEach(t => t.classList.remove('active'));
+            // Add active class to clicked tab
+            this.classList.add('active');
+            
+            // Get the target group
+            const targetGroup = this.getAttribute('data-target');
+            
+            // Hide all benefits groups
+            benefitsGroups.forEach(group => {
+                group.classList.remove('active');
+            });
+            
+            // Show the target group
+            document.getElementById(`${targetGroup}-benefits`).classList.add('active');
+        });
+    });
+});
