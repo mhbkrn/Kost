@@ -1,0 +1,677 @@
+/* Layout components for KostKusip */
+
+/* Header and Navigation */
+.header-modern {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    z-index: 100;
+    transition: all var(--transition-medium);
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.03);
+}
+
+.header-modern.scrolled {
+    height: 70px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+}
+
+.header-modern .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 0;
+    color: var(--primary);
+}
+
+.logo p {
+    font-size: 0.8rem;
+    margin-bottom: 0;
+    color: var(--secondary);
+    font-style: italic;
+    letter-spacing: 1px;
+}
+
+/* Navigation */
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    gap: 30px;
+}
+
+nav .nav-link {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--primary);
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 5px 0;
+}
+
+nav .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--secondary);
+    transition: width var(--transition-medium);
+}
+
+nav .nav-link:hover {
+    color: var(--secondary);
+}
+
+nav .nav-link:hover::after {
+    width: 100%;
+}
+
+/* Mobile toggle */
+.mobile-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.mobile-toggle span {
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary);
+    transition: all var(--transition-fast);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding-top: var(--header-height);
+    overflow: hidden;
+}
+
+.hero .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-content {
+    max-width: 600px;
+    animation: fadeUp 1s ease forwards;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--gray);
+    margin-bottom: 2rem;
+}
+
+.hero-graphic {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Rooms Section */
+.rooms {
+    background-color: var(--off-white);
+    position: relative;
+}
+
+.room-showcase {
+    position: relative;
+}
+
+.room-carousel {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.room-preview {
+    flex: 1;
+    min-width: 300px;
+}
+
+.room-images {
+    position: relative;
+    height: 450px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: 0 15px 30px var(--shadow);
+}
+
+.room-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity var(--transition-slow);
+}
+
+.room-image.active {
+    opacity: 1;
+}
+
+.room-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.room-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    color: var(--white);
+}
+
+.room-overlay h3 {
+    color: var(--white);
+    margin-bottom: 5px;
+}
+
+.room-overlay p {
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.view-3d-button {
+    background-color: var(--secondary);
+    color: var(--white);
+    border: none;
+    padding: 8px 15px;
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.view-3d-button:hover {
+    background-color: var(--primary);
+}
+
+.room-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.prev-room, .next-room {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: var(--gray);
+    cursor: pointer;
+    padding: 10px;
+    transition: color var(--transition-fast);
+}
+
+.prev-room:hover, .next-room:hover {
+    color: var(--primary);
+}
+
+.room-dots {
+    display: flex;
+    gap: 10px;
+    margin: 0 20px;
+}
+
+.room-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--gray-light);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.room-dot.active {
+    background-color: var(--secondary);
+    transform: scale(1.2);
+}
+
+/* Room details */
+.room-details {
+    flex: 1;
+    min-width: 300px;
+}
+
+.room-detail {
+    display: none;
+    background-color: var(--white);
+    border-radius: var(--radius-md);
+    padding: 30px;
+    box-shadow: 0 10px 30px var(--shadow);
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.room-detail.active {
+    display: block;
+}
+
+.room-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--gray-light);
+}
+
+.room-header h3 {
+    margin-bottom: 0;
+}
+
+.price {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--secondary);
+    margin-bottom: 0;
+}
+
+.price span {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--gray);
+}
+
+.feature-list {
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.feature-list li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.feature-list li i {
+    margin-right: 15px;
+    color: var(--secondary);
+    font-size: 1.2rem;
+    width: 20px;
+    text-align: center;
+}
+
+/* 3D Room Viewer Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background-color: var(--white);
+    border-radius: var(--radius-md);
+    max-width: 900px;
+    width: 90%;
+    padding: 30px;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--gray);
+    transition: color var(--transition-fast);
+}
+
+.close-modal:hover {
+    color: var(--primary);
+}
+
+.room-3d-container {
+    width: 100%;
+    height: 500px;
+    margin-top: 20px;
+    background-color: var(--gray-light);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+}
+
+/* Benefits Section */
+.benefits {
+    background-color: var(--white);
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.benefit-card {
+    background-color: var(--off-white);
+    padding: 30px;
+    border-radius: var(--radius-md);
+    text-align: center;
+    transition: all var(--transition-medium);
+    position: relative;
+    overflow: hidden;
+}
+
+.benefit-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--secondary);
+    transition: height var(--transition-slow);
+}
+
+.benefit-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px var(--shadow);
+}
+
+.benefit-card:hover::before {
+    height: 6px;
+}
+
+.benefit-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: var(--secondary-light);
+    color: var(--secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 1.8rem;
+}
+
+.benefit-card h3 {
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+}
+
+.benefit-card p {
+    margin-bottom: 0;
+    color: var(--gray);
+    font-size: 0.95rem;
+}
+
+/* Availability Section */
+.availability {
+    background-color: var(--off-white);
+}
+
+.availability-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.availability-card {
+    background-color: var(--white);
+    border-radius: var(--radius-md);
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 10px 30px var(--shadow);
+    transition: all var(--transition-medium);
+}
+
+.availability-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px var(--shadow-dark);
+}
+
+.room-type {
+    font-family: var(--font-primary);
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    color: var(--primary);
+}
+
+.availability-status {
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.available {
+    color: #4CAF50;
+}
+
+.unavailable {
+    color: #F44336;
+}
+
+.rooms-left {
+    margin-bottom: 25px;
+    color: var(--gray);
+    font-size: 0.95rem;
+}
+
+/* Contact Section */
+.contact {
+    background-color: var(--white);
+}
+
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.contact-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: var(--secondary);
+    margin-right: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: var(--secondary-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-item p {
+    margin-bottom: 0;
+    font-size: 1.1rem;
+}
+
+.whatsapp-contact {
+    flex: 1;
+    min-width: 300px;
+    background-color: var(--off-white);
+    padding: 30px;
+    border-radius: var(--radius-md);
+}
+
+.whatsapp-contact h3 {
+    margin-bottom: 10px;
+}
+
+.whatsapp-button {
+    display: inline-flex;
+    align-items: center;
+    background-color: #25D366;
+    color: var(--white);
+    padding: 15px 30px;
+    border-radius: var(--radius-sm);
+    font-weight: 500;
+    margin-top: 20px;
+    transition: all var(--transition-fast);
+}
+
+.whatsapp-button i {
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+
+.whatsapp-button:hover {
+    background-color: #128C7E;
+    color: var(--white);
+    transform: translateY(-3px);
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 70px 0 0;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    margin-bottom: 50px;
+}
+
+.footer-logo {
+    flex: 2;
+    min-width: 300px;
+}
+
+.footer-logo h2 {
+    color: var(--white);
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.footer-logo p {
+    color: var(--gray-light);
+    opacity: 0.7;
+}
+
+.footer-links, .footer-social {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-links h3, .footer-social h3 {
+    color: var(--white);
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-links h3::after, .footer-social h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--secondary);
+}
+
+.footer-links ul {
+    list-style: none;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: var(--gray-light);
+    transition: color var(--transition-fast);
+}
+
+.footer-links a:hover {
+    color: var(--secondary);
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+}
+
+.social-icons a:hover {
+    background-color: var(--secondary);
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+    margin-bottom: 0;
+    color: var(--gray-light);
+    opacity: 0.7;
+    font-size: 0.9rem;
+}

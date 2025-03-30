@@ -1,0 +1,674 @@
+/* Components and UI elements for KostKusip */
+
+/* Cards and Containers */
+.card {
+    background-color: var(--white);
+    border-radius: var(--radius-md);
+    box-shadow: 0 10px 30px var(--shadow);
+    padding: 30px;
+    transition: all var(--transition-medium);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px var(--shadow-dark);
+}
+
+/* Interactive elements */
+.card-interactive {
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+}
+
+.card-interactive::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--secondary);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform var(--transition-medium);
+}
+
+.card-interactive:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Icons with animations */
+.icon-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--secondary-light);
+    color: var(--secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: all var(--transition-medium);
+}
+
+.icon-circle:hover {
+    background-color: var(--secondary);
+    color: var(--white);
+    transform: scale(1.1);
+}
+
+/* Custom badge */
+.badge {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-primary {
+    background-color: var(--secondary-light);
+    color: var(--secondary);
+}
+
+.badge-accent {
+    background-color: rgba(79, 109, 122, 0.2);
+    color: var(--accent);
+}
+
+/* Feature tags */
+.feature-tag {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--off-white);
+    border-radius: var(--radius-sm);
+    padding: 6px 12px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+}
+
+.feature-tag i {
+    margin-right: 6px;
+    color: var(--secondary);
+}
+
+body.dark-mode .feature-tag {
+    background-color: var(--primary-light);
+}
+
+/* Dividers */
+.divider {
+    width: 100%;
+    height: 1px;
+    background-color: var(--gray-light);
+    margin: 30px 0;
+}
+
+.divider-dashed {
+    border-top: 1px dashed var(--gray-light);
+    background-color: transparent;
+}
+
+.divider-with-text {
+    display: flex;
+    align-items: center;
+    margin: 30px 0;
+}
+
+.divider-with-text::before,
+.divider-with-text::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background-color: var(--gray-light);
+}
+
+.divider-with-text span {
+    padding: 0 15px;
+    font-size: 0.9rem;
+    color: var(--gray);
+}
+
+/* Three.js overlay styles */
+.three-background {
+    z-index: -1;
+}
+
+.three-loading {
+    text-align: center;
+    padding: 30px;
+    font-style: italic;
+    color: var(--gray);
+}
+
+.three-error {
+    text-align: center;
+    padding: 30px;
+    color: #F44336;
+}
+
+/* Progress bars */
+.progress-container {
+    width: 100%;
+    height: 8px;
+    background-color: var(--gray-light);
+    border-radius: 4px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: var(--secondary);
+    border-radius: 4px;
+    transition: width var(--transition-medium);
+}
+
+/* Form elements */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--gray-light);
+    border-radius: var(--radius-sm);
+    background-color: var(--white);
+    font-family: var(--font-secondary);
+    font-size: 1rem;
+    transition: all var(--transition-fast);
+}
+
+.form-input:focus {
+    border-color: var(--secondary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(201, 168, 124, 0.2);
+}
+
+.form-textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+body.dark-mode .form-input {
+    background-color: var(--primary-light);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+}
+
+body.dark-mode .form-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Custom tooltips */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltip-text {
+    visibility: hidden;
+    width: 200px;
+    background-color: var(--primary);
+    color: var(--white);
+    text-align: center;
+    border-radius: var(--radius-sm);
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity var(--transition-medium);
+    font-size: 0.85rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tooltip .tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--primary) transparent transparent transparent;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Image overlay effects */
+.image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 30px;
+    opacity: 0;
+    transition: opacity var(--transition-medium);
+}
+
+.image-container:hover .image-overlay {
+    opacity: 1;
+}
+
+.image-title {
+    color: var(--white);
+    margin-bottom: 10px;
+    transform: translateY(20px);
+    transition: transform var(--transition-medium);
+}
+
+.image-description {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    transform: translateY(20px);
+    transition: transform var(--transition-medium);
+    transition-delay: 0.05s;
+}
+
+.image-container:hover .image-title,
+.image-container:hover .image-description {
+    transform: translateY(0);
+}
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--off-white);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gray-light);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--gray);
+}
+
+body.dark-mode::-webkit-scrollbar-track {
+    background: var(--primary-light);
+}
+
+body.dark-mode::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Room Classes Design Section Styles */
+.room-classes {
+    padding: 80px 0;
+    background-color: var(--off-white);
+}
+
+body.dark-mode .room-classes {
+    background-color: var(--primary-dark);
+}
+
+.room-classes-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.room-class-card {
+    background-color: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.room-class-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+body.dark-mode .room-class-card {
+    background-color: var(--primary);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.room-class-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+body.dark-mode .room-class-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.room-class-header h3 {
+    font-family: var(--font-primary);
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--primary);
+}
+
+.class-badge {
+    background-color: var(--secondary-light);
+    color: var(--secondary);
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.class-badge.deluxe {
+    background-color: rgba(125, 161, 196, 0.2);
+    color: #5185bd;
+}
+
+.class-badge.premium {
+    background-color: rgba(148, 118, 176, 0.2);
+    color: #7a4e9d;
+}
+
+.room-class-content {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+
+@media (min-width: 992px) {
+    .room-class-content {
+        flex-direction: row;
+        height: 400px;
+    }
+}
+
+.room-class-image {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 250px;
+}
+
+@media (min-width: 992px) {
+    .room-class-image {
+        width: 45%;
+        height: 100%;
+    }
+}
+
+.room-class-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.room-class-card:hover .room-class-image img {
+    transform: scale(1.05);
+}
+
+.room-class-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.room-class-card:hover .room-class-overlay {
+    opacity: 1;
+}
+
+.overlay-icons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.design-feature {
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.design-feature i {
+    font-size: 0.95rem;
+}
+
+.room-class-details {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.room-class-description {
+    color: var(--gray-dark);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+body.dark-mode .room-class-description {
+    color: var(--gray-light);
+}
+
+.room-design-features {
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.room-design-features h4 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.room-design-features ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+@media (min-width: 768px) {
+    .room-design-features ul {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.room-design-features li {
+    display: flex;
+    align-items: center;
+    font-size: 0.95rem;
+    color: var(--gray);
+}
+
+body.dark-mode .room-design-features li {
+    color: var(--gray-light);
+}
+
+.room-design-features li i {
+    width: 28px;
+    height: 28px;
+    background-color: rgba(201, 168, 124, 0.15);
+    color: var(--secondary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    font-size: 0.85rem;
+}
+
+.room-class-cta {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+body.dark-mode .room-class-cta {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.room-class-price {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary);
+    font-family: var(--font-primary);
+}
+
+body.dark-mode .room-class-price {
+    color: var(--white);
+}
+
+.room-class-price small {
+    font-size: 0.9rem;
+    font-weight: 400;
+    opacity: 0.7;
+}
+
+.cta-button.waitlist {
+    background-color: var(--gray);
+}
+
+/* Design Philosophy Section */
+.design-philosophy {
+    margin-top: 80px;
+    text-align: center;
+    padding: 50px;
+    background-color: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+}
+
+body.dark-mode .design-philosophy {
+    background-color: var(--primary);
+}
+
+.design-philosophy h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: var(--primary);
+    font-family: var(--font-primary);
+}
+
+.design-philosophy > p {
+    font-size: 1.1rem;
+    color: var(--gray);
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+body.dark-mode .design-philosophy > p {
+    color: var(--gray-light);
+}
+
+.philosophy-points {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+@media (min-width: 576px) {
+    .philosophy-points {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 992px) {
+    .philosophy-points {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+.philosophy-item {
+    text-align: center;
+    padding: 30px 20px;
+    border-radius: var(--radius-md);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.philosophy-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+body.dark-mode .philosophy-item:hover {
+    background-color: var(--primary-light);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.philosophy-item i {
+    font-size: 2rem;
+    color: var(--secondary);
+    margin-bottom: 15px;
+}
+
+.philosophy-item h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.philosophy-item p {
+    font-size: 0.95rem;
+    color: var(--gray);
+    line-height: 1.5;
+}
+
+body.dark-mode .philosophy-item p {
+    color: var(--gray-light);
+}

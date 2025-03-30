@@ -1,0 +1,182 @@
+/* Dark Mode Styles for KostKusip */
+
+body.dark-mode {
+    background-color: var(--primary);
+    color: var(--off-white);
+}
+
+body.dark-mode .header-modern {
+    background-color: rgba(26, 26, 46, 0.8);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .logo h1,
+body.dark-mode h1, 
+body.dark-mode h2, 
+body.dark-mode h3, 
+body.dark-mode h4, 
+body.dark-mode h5, 
+body.dark-mode h6 {
+    color: var(--white);
+}
+
+body.dark-mode nav .nav-link {
+    color: var(--white);
+}
+
+body.dark-mode .mobile-toggle span {
+    background-color: var(--white);
+}
+
+body.dark-mode .hero-subtitle {
+    color: var(--gray-light);
+}
+
+body.dark-mode .rooms,
+body.dark-mode .availability {
+    background-color: var(--primary-light);
+}
+
+body.dark-mode .room-detail,
+body.dark-mode .availability-card,
+body.dark-mode .modal-content {
+    background-color: var(--primary);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .room-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .feature-list li {
+    color: var(--gray-light);
+}
+
+body.dark-mode .benefit-card {
+    background-color: var(--primary-light);
+}
+
+body.dark-mode .benefit-card p {
+    color: var(--gray-light);
+}
+
+body.dark-mode .benefit-icon {
+    background-color: rgba(201, 168, 124, 0.2);
+}
+
+body.dark-mode .room-3d-container {
+    background-color: var(--primary-light);
+}
+
+body.dark-mode .whatsapp-contact {
+    background-color: var(--primary-light);
+}
+
+body.dark-mode .room-dot {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .room-dot.active {
+    background-color: var(--secondary);
+}
+
+body.dark-mode .prev-room, 
+body.dark-mode .next-room {
+    color: var(--gray-light);
+}
+
+body.dark-mode .prev-room:hover, 
+body.dark-mode .next-room:hover {
+    color: var(--white);
+}
+
+body.dark-mode footer {
+    background-color: var(--black);
+}
+
+/* Theme switch */
+.theme-switch {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    background-color: var(--white);
+    border-radius: 30px;
+    padding: 5px 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: all var(--transition-medium);
+}
+
+body.dark-mode .theme-switch {
+    background-color: var(--primary-light);
+}
+
+.theme-switch i {
+    color: var(--gray);
+    font-size: 14px;
+}
+
+body.dark-mode .theme-switch i {
+    color: var(--gray-light);
+}
+
+.fa-moon {
+    margin-right: 10px;
+}
+
+.fa-sun {
+    margin-left: 10px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--gray-light);
+    transition: var(--transition-medium);
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 3px;
+    bottom: 2px;
+    background-color: var(--white);
+    transition: var(--transition-medium);
+}
+
+input:checked + .slider {
+    background-color: var(--secondary);
+}
+
+input:checked + .slider:before {
+    transform: translateX(18px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
