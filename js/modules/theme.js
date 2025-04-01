@@ -37,9 +37,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const metaThemeColor = document.querySelector('meta[name="theme-color"]');
         metaThemeColor.setAttribute('content', theme === 'dark' ? '#121212' : '#FFFFFF');
         
-        // Update Three.js background if function exists
-        if (window.updateThreeJsParticles) {
-            window.updateThreeJsParticles(theme);
+        // Update background animation theme if function exists
+        if (window.updateBackgroundTheme) {
+            window.updateBackgroundTheme(theme);
         }
     }
 });

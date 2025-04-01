@@ -180,3 +180,53 @@ input:checked + .slider:before {
 .slider.round:before {
     border-radius: 50%;
 }
+
+/* Dark Mode Styles for Room Preview */
+body.dark-mode .rooms {
+    background-color: var(--primary-light);
+}
+
+body.dark-mode .room-detail {
+    background-color: var(--primary);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .room-overlay {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.5) 50%, transparent 100%);
+}
+
+body.dark-mode .view-3d-button:hover {
+    background-color: var(--primary);
+}
+
+body.dark-mode .prev-room,
+body.dark-mode .next-room {
+    border-color: rgba(255, 255, 255, 0.1);
+    color: var(--gray-light);
+}
+
+body.dark-mode .prev-room:hover,
+body.dark-mode .next-room:hover {
+    border-color: var(--secondary);
+    color: var(--secondary);
+}
+
+body.dark-mode .room-dot {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .room-dot:hover {
+    background-color: var(--secondary-light);
+}
+
+body.dark-mode .room-header {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .feature-list li {
+    color: var(--gray-light);
+}
+
+body.dark-mode .feature-list li i {
+    background-color: rgba(201, 168, 124, 0.15);
+}

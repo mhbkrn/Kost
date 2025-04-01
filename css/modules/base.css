@@ -55,7 +55,7 @@ body {
     transition: background-color var(--transition-medium), color var(--transition-medium);
 }
 
-/* Three.js background container */
+/* Three.js background container - Replaced with animated background image */
 .three-background {
     position: fixed;
     top: 0;
@@ -64,6 +64,27 @@ body {
     height: 100%;
     z-index: -1;
     pointer-events: none;
+    background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), 
+                url('https://static.vecteezy.com/system/resources/thumbnails/047/870/330/small_2x/white-leather-upholstery-background-quilted-seamless-padded-pattern-wallpaper-vector.jpg') repeat;
+    background-size: 600px 600px;
+    animation: moveBackground 60s linear infinite;
+}
+
+/* Dark mode version of the animated background */
+body.dark-mode .three-background {
+    background: linear-gradient(rgba(26, 26, 46, 0.92), rgba(26, 26, 46, 0.92)), 
+                url('https://static.vecteezy.com/system/resources/thumbnails/047/870/330/small_2x/white-leather-upholstery-background-quilted-seamless-padded-pattern-wallpaper-vector.jpg') repeat;
+    background-size: 600px 600px;
+}
+
+/* Background animation */
+@keyframes moveBackground {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 600px 600px;
+    }
 }
 
 /* Typography */
